@@ -1,4 +1,9 @@
 
+using Microsoft.EntityFrameworkCore;
+using VeroToursApi.Context;
+using VeroToursApi.Interfaces;
+using VeroToursApi.Services;
+
 namespace VeroToursApi
 {
     public class Program
@@ -8,6 +13,9 @@ namespace VeroToursApi
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+
+            builder.Services.AddDbContext<VeroToursContext>(Options => Options.UseSqlServer(builder.Configuration.GetConnectionString("sqlconnection")));
+            builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
