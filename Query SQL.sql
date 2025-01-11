@@ -9,7 +9,7 @@ GO
 -- Tabla de Usuarios
 CREATE TABLE Usuarios (
     UsuarioID INT IDENTITY(1,1),
-	Contraseña VARCHAR NOT NULL,
+	Contraseña VARCHAR(255) NOT NULL,
     Nombre NVARCHAR(100) NOT NULL,
     Apellido NVARCHAR(100) NOT NULL,
     Email NVARCHAR(150) NOT NULL UNIQUE,
